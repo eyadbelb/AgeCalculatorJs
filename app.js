@@ -13,17 +13,26 @@
 
 // This functions should check the integrity of the parameters and pass true/false
 function checkParamsFn(year, month, day) {
-  // Write your code here
+  if (isNaN(parseInt(year))) return false;
+  else if (isNaN(parseInt(month))) return false;
+  else if (isNaN(parseInt(day))) return false;
+  else return true;
 }
+console.log(checkParamsFn(1, 1, 1));
 
 // This functions checks if the person is or above 18 years of age, return true/false
-function checkOverEighteenFn(year, month, day) {
-  // Write your code here
+function checkOverEighteenFn(year) {
+  if (2021 - parseInt(year) >= 18) return true;
+  else return false;
 }
+console.log(checkOverEighteenFn(1996));
 
 function calculateAgeFn(year, month, day) {
-  // Write your code here
+  if (checkParamsFn(year, month, day) == false) return console.log("error");
+  else if (checkOverEighteenFn(year) == false) return console.log("error");
+  else console.log(2021 - parseInt(year));
 }
+console.log(calculateAgeFn(1996, 1, 25));
 
 // Look at the naming of the functions. it looks like salwaBaqer, where
 // the first letter of the first word is small, while the first letter of the
@@ -33,4 +42,4 @@ function calculateAgeFn(year, month, day) {
 // It's best practice to name your function as to what it does, or your variable
 // to what it holds.
 
-module.exports = calculateAgeFn;
+//module.exports = calculateAgeFn;
